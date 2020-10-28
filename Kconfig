@@ -1,40 +1,40 @@
-menu "LIMITZ led strip APA102"
+menu "LIMITZ servo MS-12A"
 
-	config LMTZ_APA102_NUM_LEDS
-		int
-		prompt "Number of leds"
-		default 1
+	config LMTZ_MS12A_NUM_SERVOS
+		int "Number of servos"
+		default 3
 	
-	choice LMTZ_APA102_SPI
-		prompt "SPI host"
-		default LMTZ_APA102_SPI_HSPI
-
-		config LMTZ_APA102_SPI_HSPI
-			bool "HSPI"
+	config LMTZ_MS12A_UART
+		int "UART: port"
+		default 1
 		
-		config LMTZ_APA102_SPI_VSPI
-			bool "VSPI"
-	endchoice
-
-		
-	config LMTZ_APA102_DMA_CHANNEL
+	config LMTZ_MS12A_BAUDRATE
 		int
-		prompt "DMA channel" 
-		default 2
+		prompt "UART: Baudrate"
+		default 115200
+	
+	config LMTZ_MS12A_PIN_RX
+		int "UART: RX pin"
+		default 17
 
-	config LMTZ_APA102_PIN_MOSI
-		int
-		prompt "SPI: MOSI pin"
-		default 13
+	config LMTZ_MS12A_PIN_TX
+		int "UART: TX pin"
+		default 15
 
-	config LMTZ_APA102_PIN_SCLK
-		int
-		prompt "SPI: SCLK pin"
-		default 14
 
-	config LMTZ_APA102_CLOCK_SPEED
-		int
-		prompt "SPI: Clock speed"
-		default 1000000
+	config LMTZ_MS12A_RX_BUFFER_SIZE
+		int "UART: RX buffer size"
+		default 1024
 
+	config LMTZ_MS12A_TX_BUFFER_SIZE
+		int "UART: TX buffer size"
+		default 0
+
+	config LMTZ_MS12A_TASK_STACK_SIZE
+		int "UART: Task stack size"
+		default 2048
+
+	config LMTZ_MS12A_TASK_QUEUE_SIZE
+		int  "UART: Task queue size"
+		default 10
 endmenu

@@ -1,4 +1,4 @@
 idf_component_register(SRCS
-		"apa102_example.c"
+		"ms12a_example.c"
 		INCLUDE_DIRS ".")
 
