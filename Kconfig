@@ -1,40 +1,95 @@
-menu "LIMITZ servo MS-12A"
+menu "Limitz GPUART"
 
-	config LMTZ_MS12A_NUM_SERVOS
-		int "Number of servos"
-		default 3
-	
-	config LMTZ_MS12A_UART
+	config LMTZ_GPUART1_ENABLE
+		bool "Enable GPUART1"
+		default no
+
+	config LMTZ_GPUART1_UART
+		depends on LMTZ_GPUART1_ENABLE
 		int "UART: port"
 		default 1
 		
-	config LMTZ_MS12A_BAUDRATE
+	config LMTZ_GPUART1_BAUDRATE
+		depends on LMTZ_GPUART1_ENABLE
 		int
 		prompt "UART: Baudrate"
 		default 115200
 	
-	config LMTZ_MS12A_PIN_RX
+	config LMTZ_GPUART1_PIN_RX
+		depends on LMTZ_GPUART1_ENABLE
 		int "UART: RX pin"
 		default 17
 
-	config LMTZ_MS12A_PIN_TX
+	config LMTZ_GPUART1_PIN_TX
+		depends on LMTZ_GPUART1_ENABLE
 		int "UART: TX pin"
 		default 15
 
 
-	config LMTZ_MS12A_RX_BUFFER_SIZE
+	config LMTZ_GPUART1_RX_BUFFER_SIZE
+		depends on LMTZ_GPUART1_ENABLE
 		int "UART: RX buffer size"
 		default 1024
 
-	config LMTZ_MS12A_TX_BUFFER_SIZE
+	config LMTZ_GPUART1_TX_BUFFER_SIZE
+		depends on LMTZ_GPUART1_ENABLE
 		int "UART: TX buffer size"
 		default 0
 
-	config LMTZ_MS12A_TASK_STACK_SIZE
+	config LMTZ_GPUART1_TASK_STACK_SIZE
+		depends on LMTZ_GPUART1_ENABLE
 		int "UART: Task stack size"
 		default 2048
 
-	config LMTZ_MS12A_TASK_QUEUE_SIZE
+	config LMTZ_GPUART1_TASK_QUEUE_SIZE
+		depends on LMTZ_GPUART1_ENABLE
+		int  "UART: Task queue size"
+		default 10
+
+
+	config LMTZ_GPUART2_ENABLE
+		bool "Enable GPUART2"
+		default no
+
+	config LMTZ_GPUART2_UART
+		depends on LMTZ_GPUART2_ENABLE
+		int "UART: port"
+		default 1
+		
+	config LMTZ_GPUART2_BAUDRATE
+		depends on LMTZ_GPUART2_ENABLE
+		int
+		prompt "UART: Baudrate"
+		default 115200
+	
+	config LMTZ_GPUART2_PIN_RX
+		depends on LMTZ_GPUART2_ENABLE
+		int "UART: RX pin"
+		default 17
+
+	config LMTZ_GPUART2_PIN_TX
+		depends on LMTZ_GPUART2_ENABLE
+		int "UART: TX pin"
+		default 15
+
+
+	config LMTZ_GPUART2_RX_BUFFER_SIZE
+		depends on LMTZ_GPUART2_ENABLE
+		int "UART: RX buffer size"
+		default 1024
+
+	config LMTZ_GPUART2_TX_BUFFER_SIZE
+		depends on LMTZ_GPUART2_ENABLE
+		int "UART: TX buffer size"
+		default 0
+
+	config LMTZ_GPUART2_TASK_STACK_SIZE
+		depends on LMTZ_GPUART2_ENABLE
+		int "UART: Task stack size"
+		default 2048
+
+	config LMTZ_GPUART2_TASK_QUEUE_SIZE
+		depends on LMTZ_GPUART2_ENABLE
 		int  "UART: Task queue size"
 		default 10
 endmenu
