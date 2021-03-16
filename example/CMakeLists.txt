@@ -4,8 +4,4 @@ cmake_minimum_required(VERSION 3.5)
 
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
 list(APPEND EXTRA_COMPONENT_DIRS ..)
-list(APPEND EXTRA_COMPONENT_DIRS ../modules/lv_port_esp32/components/lvgl)
-list(APPEND EXTRA_COMPONENT_DIRS ../modules/lv_port_esp32/components/lvgl_esp32_drivers)
-list(APPEND EXTRA_COMPONENT_DIRS ../modules/lv_port_esp32/components/lvgl_esp32_drivers/lvgl_tft)
-list(APPEND EXTRA_COMPONENT_DIRS ../modules/lv_port_esp32/components/lvgl_esp32_drivers/lvgl_touch)
 project(uart_example)

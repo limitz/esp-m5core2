@@ -18,7 +18,7 @@ static struct
 	SemaphoreHandle_t lock;
 	TaskHandle_t main_task;
 	esp_timer_handle_t periodic_timer;
-	lv_style_t background;
+	lv_style_t background, foreground;
 	lv_obj_t* screen;
 	void (*update)();
 
@@ -71,10 +71,21 @@ int ui_init()
 	lv_style_set_line_rounded(s, LV_STATE_DEFAULT, true);
 
 	UI.screen = lv_scr_act();
-	lv_obj_add_style(UI.screen, LV_OBJ_PART_MAIN, &UI.background);
-	lv_obj_set_size(UI.screen, 240, 320);
-	lv_obj_set_pos(UI.screen, 0, 0);
+	
+	lv_obj_t* c = UI.screen; //lv_obj_create(UI.screen, NULL);
+	lv_obj_add_style(c, LV_OBJ_PART_MAIN, &UI.background);
+	lv_obj_set_size(c, 320, 320);
+	lv_obj_set_pos(c, 0, 0);
 
+	s = &UI.foreground;
+	lv_style_init(s);
+	lv_style_set_bg_color(s, LV_STATE_DEFAULT, LV_COLOR_MAKE(0xFF, 0xFF, 0x00));
+	
+	c = lv_obj_create(UI.screen, NULL);
+	lv_obj_add_style(c, LV_OBJ_PART_MAIN, &UI.background);
+	lv_obj_add_style(c, LV_OBJ_PART_MAIN, &UI.foreground);
+	lv_obj_set_size(c, 60, 240);
+	lv_obj_set_pos(c, 90, 60);
 	return ESP_OK;
 }
 
