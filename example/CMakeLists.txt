@@ -4,4 +4,8 @@ cmake_minimum_required(VERSION 3.5)
 
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
 list(APPEND EXTRA_COMPONENT_DIRS ..)
-project(uart_example)
+list(APPEND EXTRA_COMPONENT_DIRS ../components/lvgl)
+list(APPEND EXTRA_COMPONENT_DIRS ../components/lvgl_esp32_drivers)
+list(APPEND EXTRA_COMPONENT_DIRS ../components/lvgl_esp32_drivers/lvgl_tft)
+
+project(m5core2_example)
